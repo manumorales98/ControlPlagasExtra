@@ -1,0 +1,146 @@
+* {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background-image: url(fondo-pantalla.jpg);
+	background-size: cover;
+}
+
+#popup_box {
+	display: none; /* Hide the DIV */
+	position: fixed;
+	_position: absolute; /* hack for internet explorer 6 */
+	height: 50px;
+	width: 300px;
+	background: #5fca8c;
+	left: 22%;
+	top: 43%;
+	float: center;
+	/* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+	margin-left: 25px;
+	/* additional features, can be omitted */
+	border: 2px;
+	padding: 15px;
+	font-size: 2px;
+	-moz-box-shadow: 0 0 5px;
+	-webkit-box-shadow: 0 0 5px;
+	box-shadow: 0 0 5px;
+	border-radius: 10px;
+}
+
+.box {
+	width: 600px;
+	padding: 25px;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(0, 0, 0, -0.1);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
+	color: white;
+	text-align: center;
+	border-radius: 25px;
+	height: 650px;
+	flex-wrap: wrap;
+	margin: 20px;
+}
+
+.box h1 {
+	color: rgb(248, 248, 248);
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+h2 {
+	color: rgb(248, 248, 248);
+	text-transform: uppercase;
+	font-size: 18px;
+}
+
+.box input[type="text"], .box input[type="password"], .box select {
+	background: #161616c5;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2e2c2c;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: rgb(255, 255, 255);
+	border-radius: 18px;
+	transition: 0.5s;
+}
+
+.box input[type="text"]:hover, .box input[type="password"]:hover {
+	width: 280px;
+	background: #d8d8d8;
+	color: black;
+}
+
+.box button[type="button"] {
+	background: none;
+	font-size: 18px;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #2ecc71;
+	padding: 14px 40px;
+	outline: none;
+	color: white;
+	border-radius: 18px;
+	transition: 0.25s;
+	cursor: pointer;
+	width: 200px;
+}
+
+.box button[type="button"]:hover {
+	background: #2ecc71;
+	color: black;
+	border-color: black;
+}
+
+.box button[value="REGISTRO"]:hover {
+	background: #11a4b8;
+	color: black;
+}
+
+.box button[value="REGISTRO"] {
+	color: white;
+	border-color: #11a4b8;
+}
+
+.box button[type=button]:active, #goToLogin:active {
+	transform: scale(0.9);
+}
+
+#goToLogin {
+	border-color: grey;
+	background-color: grey;
+	opacity: 0.8;
+}
+
+#goToLogin:hover {
+	background-color: grey;
+	border-color: black;
+}
+
+#username, #email, #pwd1, #pwd2 {
+	display: inline
+}
+
+#btnregister, #goToLogin {
+	display: inline
+}
+
+#btnregister {
+	background-color: #2ecc71;
+}
+
+#btnregister:hover {
+	background-color: #9ff38ac5;
+}

@@ -1,0 +1,39 @@
+dist: trusty
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+
+install:
+  - npm install
+
+git:
+  depth: false
+
+script:
+- mvn clean
+- mvn verify
+- mvn jacoco:report
+- mvn install
+- mvn package spring-boot:repackage
+- mvn verify sonar:sonar -Dsonar.projectKey=RamonDiazRodrigo_SIGET_Equipo1 -Dsonar.organization=agendae5
+
+
+deploy: &heroku
+        provider: heroku
+        app: sige-equipo1-mantenimiento
+        api_key: 
+		secure: "Ln4mRKs5HKf1zVh1h9q+xyFViXxCOsl1xMO1r0wFnRcHk6a6pAEWi/Ygz5CFCHXRTbnokHeBgv1DrRCFQhyr1qxsrPD0OCNIrEb5qHrKUmslv1zTEhcecUCa0fU0PFqMG8/pi9k2ZTJumrkoj8vuWDAx7qAfY8gJkoaX1SzIBRm7Y34Rqd7s3/bPJg/NxvnIkJreUtLSkXokkhGXdTC3hhHx9aXqbM8SpJIGJUDQkBBhGuBtO1/EMkXvWguGhcM1ONUBu+/Q/sdxNoLBJ5RtRsY5SPmG7CSTrOQPYLDywbXrq0D1Yziqf/nbVpJt1J776vsjxuWrJyqaxNRUv4UIdGvO4xeOsV/ayKoknSOmPD99k2a61UX71GIEfVR9F+d0KgOQC3VrywZUckKj8+8/D7zjAsV+MwBX+RlYfE/GBU0yxw1cMr/mthXmwNmB4xxx1o2vIJQK6e4f6UlNmVhDJxBaGfg/2XpPSMpoI/pKB0Txkr369YyCn6Jc3f6VKHqq18uv8qKAnT7yJB0ydUXxXaXbhaeHwwDa+BwMkB9IG6RfNGbwSiA1cE46+1C9HMgIurqgFOtqegjShQgZloFs17q+K5ZA1p2SZuwQ0xT4keSgZcc1cNpj6p17AzEGv1S7+opksEhdn2e+1JFL0UJMrwvhzqKATEOVfJ//OQ7mj2o="
+
+
+server:
+        port: $PORT
+  
+before_install:
+  - chmod +x mvnw
